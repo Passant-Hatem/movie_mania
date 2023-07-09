@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/data/network/api_constance.dart';
 import '../../../../core/data/utils/enums.dart';
+import '../../../movie_details/presentation/screens/movie_details_screen.dart';
 import '../controller/movies_bloc.dart';
 
 class NowPlayingMovies extends StatelessWidget {
@@ -39,7 +40,15 @@ class NowPlayingMovies extends StatelessWidget {
                       return GestureDetector(
                         key: const Key('openMovieMinimalDetail'),
                         onTap: () {
-                          //TODO NAVIGATE TO  MOVIE DETAILS
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (BuildContext context) =>
+                                  MovieDetailScreen(
+                                id: item.id,
+                              ),
+                            ),
+                          );
                         },
                         child: Stack(
                           children: [
