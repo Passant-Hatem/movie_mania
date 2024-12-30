@@ -7,10 +7,10 @@ import 'package:shimmer/shimmer.dart';
 
 import '../../../../core/data/network/api_constance.dart';
 import '../../../../core/data/services/services_locator.dart';
-import '../../../../core/data/utils/app_string.dart';
 import '../../../../core/data/utils/enums.dart';
 import '../../domain/models/Genres.dart';
 import '../controller/movie_details_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class MovieDetailScreen extends StatelessWidget {
   final int id;
@@ -169,7 +169,7 @@ class MovieDetailContent extends StatelessWidget {
                           ),
                           const SizedBox(height: 8.0),
                           Text(
-                            '${AppString.genres}: ${_showGenres(state.movieDetail!.genres)}',
+                            '${AppLocalizations.of(context)!.genres}: ${_showGenres(state.movieDetail!.genres)}',
                             style: const TextStyle(
                               color: Colors.white70,
                               fontSize: 12.0,
@@ -188,8 +188,8 @@ class MovieDetailContent extends StatelessWidget {
                     child: FadeInUp(
                       from: 20,
                       duration: const Duration(milliseconds: 500),
-                      child: const Text(
-                        AppString.moreLikeThis,
+                      child: Text(
+                        AppLocalizations.of(context)!.moreLikeThis,
                         style: TextStyle(
                           fontSize: 16.0,
                           fontWeight: FontWeight.w500,
