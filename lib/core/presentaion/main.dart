@@ -4,6 +4,8 @@ import '../data/services/services_locator.dart';
 import '../../movies/movie_list/presentation/screens/movies_screen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+import 'Theme/app_themes.dart';
+
 void main() {
   ServicesLocator().init();
   runApp(const MyApp());
@@ -17,9 +19,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       // Set a static title here or leave it empty
       title: '',
-      theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: Colors.grey.shade900,
-      ),
+      theme: AppThemes.lightTheme, // Light theme
+      darkTheme: AppThemes.darkTheme, // Dark theme
+      themeMode: ThemeMode.system, // Automatically adapt to system theme
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       home: Builder(
